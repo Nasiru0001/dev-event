@@ -1,6 +1,8 @@
 "use client";
 import Image from "next/image";
 
+import posthog from "posthog-js";
+
 const button = () => {
   return (
     <div className=" flex items-center justify-center">
@@ -19,6 +21,10 @@ const button = () => {
           priority
           alt="arrow-down"
         />
+      </button>
+
+      <button onClick={() => posthog.capture("test_event")}>
+        Click me for an event
       </button>
     </div>
   );
